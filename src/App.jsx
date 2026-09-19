@@ -1,8 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const STORAGE_KEY = 'task-board.tasks';
+
+const loadSavedTasks = () => {
+  try {
+    const savedTasks = localStorage.getItem(STORAGE_KEY);
+    if (!savedTasks) {
+      return [];
+    }
+
+    const parsedTasks = JSON.parse(savedTasks);
+    if (!Array.isArray(parsedTasks)) {
+      return [];
+    }
+
+    return parsedTasks.filter(
+      (task) =>
+        task &&
+        typeof task.id === 'string' &&
+        typeof task.title === 'string' &&
+        typeof task.completed === 'boolean',
+    );
+  } catch {
+    return [];
+  }
+};
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(loadSavedTasks);
   const [taskText, setTaskText] = useState('');
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    } catch {
+      // localStorage may be unavailable in restricted browser settings.
+    }
+  }, [tasks]);
 
   const addTask = (event) => {
     event.preventDefault();
