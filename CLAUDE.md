@@ -62,3 +62,23 @@
 
 ## Githubリポジトリ
 https://github.com/minagoma37-cmd/task-board.git
+
+## デプロイ先
+
+https://minagoma37-cmd.github.io/task-board/
+
+## 技術スタック
+
+- React
+- JavaScript
+- Vite
+- CSS
+- localStorage
+- Git / GitHub
+- GitHub Pages
+
+## コンポーネントの命名規約
+
+- ReactコンポーネントはPascalCaseで命名する
+- 例：App、TaskItem
+- コンポーネントのファイル名もPascalCaseにする
