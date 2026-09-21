@@ -61,11 +61,11 @@
 - 完了済みタスクがグレーで表示されること
 
 ## Githubリポジトリ
-https://github.com/minagoma37-cmd/task-board.git
+https://github.com/goma-hub/task-board.git
 
 ## デプロイ先
 
-https://minagoma37-cmd.github.io/task-board/
+https://goma-hub.github.io/task-board/
 
 ## 技術スタック
 
